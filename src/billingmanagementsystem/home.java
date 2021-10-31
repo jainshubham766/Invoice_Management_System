@@ -159,12 +159,22 @@ public class home extends javax.swing.JFrame {
                 jButton7ComponentShown(evt);
             }
         });
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 11, 73, -1));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/product details.png"))); // NOI18N
         jButton8.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton8ComponentShown(evt);
+            }
+        });
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(936, 11, 79, -1));
@@ -188,6 +198,11 @@ public class home extends javax.swing.JFrame {
                 jButton10ComponentShown(evt);
             }
         });
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, 79, -1));
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.png"))); // NOI18N
@@ -204,6 +219,11 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1176, 11, 79, -1));
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close application.png"))); // NOI18N
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1282, 11, 79, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
@@ -258,12 +278,8 @@ public class home extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        int a=JOptionPane.showConfirmDialog(null, "Do You Really Want To Logout ?", "Select", JOptionPane.YES_NO_OPTION);
-        if (a==0)
-        {
-            setVisible (false);
-            new login().setVisible(true);
-        }
+        new deleteBuyer().setVisible(true);
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -278,10 +294,12 @@ public class home extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        new updateBuyer().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        new deleteProduct().setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -465,6 +483,31 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         new newProduct().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+                int a=JOptionPane.showConfirmDialog(null, "Do You Really Want To Logout ?", "Select", JOptionPane.YES_NO_OPTION);
+        if (a==0)
+        {
+            setVisible (false);
+            new login().setVisible(true);
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        new updateProduct().setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        new productDetails().setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        new billing().setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
