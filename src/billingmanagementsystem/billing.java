@@ -9,6 +9,7 @@ package billingmanagementsystem;
 import java.awt.Color;
 import Project.ConnectionProvider;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 import java.sql.*;
@@ -347,22 +348,49 @@ public class billing extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+       // TODO add your handling code here:
         String name = jTextField1.getText();
         String contactNo=jTextField2.getText();
         String email=jTextField3.getText();
         String address=jTextField4.getText();
-        String path = "D:\\Shubham Jain\\Projects\\Invoice_Management_System\\Sample Bills Generation";
+        String path = "D:\\";
         com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
         try{
             PdfWriter.getInstance(doc, new FileOutputStream(path+""+name+""+ jLabel5.getText()+""));
             doc.open();
-            Paragraph paragraph1 = new Paragraph("                                       Invoice Management System\n                                     Contact Number : (+91) 1234567890");
+            Paragraph paragraph1 = new Paragraph("                                     Invoice Management System \n                                     Contact Number : (+91) 1234567890\n                   Project By TE-Div-1 SCOE students as a DBMS Mini Project");
             doc.add(paragraph1);
-            Paragraph paragraph2 = new Paragraph("Date & Time " + jLabel5.getText()+" "+ jLabel6.getText()+"");
-            //stoped at 55:26
+            Paragraph paragraph2 = new Paragraph("Date & Time " + jLabel5.getText()+" "+ jLabel6.getText()+"\nBuyer Details :\nName: "+name+"\nContact No: "+contactNo+"\nEmail: "+email+"\nAddress: "+ address+"\n\n");
+            doc.add(paragraph2);
+            PdfPTable tb1 = new PdfPTable(5);
+            tb1.addCell("Name");
+            tb1.addCell("Description");
+            tb1.addCell("Rate");
+            tb1.addCell("Quantity");           
+            tb1.addCell("Sub Total");
+            for (int i=0;i<jTable1.getRowCount();i++)
+            {
+                String n = jTable1.getValueAt(i, 0).toString();
+                String d = jTable1.getValueAt(i, 1).toString();
+                String r = jTable1.getValueAt(i, 2).toString();
+                String q = jTable1.getValueAt(i, 3).toString();
+                String s = jTable1.getValueAt(i, 4).toString();
+                tb1.addCell(n);
+                tb1.addCell(d);
+                tb1.addCell(r);
+                tb1.addCell(q);
+                tb1.addCell(s);
+            }
+            doc.add(tb1);
+            Paragraph paragraph3 = new Paragraph("\nTotal "+jTextField10.getText()+"\nPaid Amount "+jTextField11.getText()+"\nReturned Amount " +jTextField12.getText()+"\n\nThank You for your purchase! Please Visit Again.\nInvoice Management System --As TE-DBMS Group Project.");
+            doc.add(paragraph3);
+            JOptionPane.showMessageDialog(null, "Bill Generated Sucessfully!");
+            setVisible(true);
+            new billing ().setVisible(true);
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null, e);
         }
+        doc.close();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
