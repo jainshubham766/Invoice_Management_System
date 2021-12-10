@@ -356,7 +356,7 @@ public class billing extends javax.swing.JFrame {
         String path = "D:\\";
         com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
         try{
-            PdfWriter.getInstance(doc, new FileOutputStream(path+""+name+""+ jLabel5.getText()+""));
+            PdfWriter.getInstance(doc, new FileOutputStream(path+""+name+""+ jLabel5.getText()+".pdf"));
             doc.open();
             Paragraph paragraph1 = new Paragraph("                                     Invoice Management System \n                                     Contact Number : (+91) 1234567890\n                   Project By TE-Div-1 SCOE students as a DBMS Mini Project");
             doc.add(paragraph1);

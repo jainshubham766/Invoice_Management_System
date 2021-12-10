@@ -116,7 +116,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jTextField1.getText().equals("bms") && jPasswordField1.getText().equals("admin")) {
+        if (jTextField1.getText().equals("SinhgadCollegeComp") && jPasswordField1.getText().equals("SCOE")) {
             setVisible(false);
             new home().setVisible(true);
 
